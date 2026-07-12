@@ -1,65 +1,117 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+import { AppPreviewStack } from "@/components/AppPreviewStack";
+import { StoreButtons } from "@/components/StoreButtons";
+import { site } from "@/lib/site";
+
+const features = [
+  {
+    title: "Place-based streaks",
+    body: "Tie habits to real locations. Geofences check you in when you arrive — even if the app is closed.",
+  },
+  {
+    title: "Manual when you need it",
+    body: "Log visits by hand, confirm automatic check-ins, or skip Always location and stay fully manual.",
+  },
+  {
+    title: "Macros, simply",
+    body: "Track calories and optional protein, carbs, and fat. Daily goals, calendar history, and optional meal reminders.",
+  },
+  {
+    title: "Private by design",
+    body: "No account. No cloud sync. Everything lives in on-device SQLite until you delete it or reset in Settings.",
+  },
+] as const;
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <section className="relative overflow-x-clip">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            background:
+              "linear-gradient(160deg, #EEF1F7 0%, #E8ECF4 42%, #E2E8F2 72%, #D9E0EC 100%)",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div
+          className="pointer-events-none absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full opacity-50"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(160,122,48,0.28), transparent 70%)",
+          }}
+        />
+        <div
+          className="pointer-events-none absolute bottom-[-20%] left-[-8%] h-[380px] w-[380px] rounded-full opacity-40"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(27,39,66,0.12), transparent 70%)",
+          }}
+        />
+
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-28 pb-20 sm:px-8 sm:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
+          <div>
+            <p className="animate-rise font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
+              {site.name}
+            </p>
+            <h1 className="animate-rise-delay-1 mt-4 max-w-xl font-display text-2xl leading-snug text-ink sm:text-3xl">
+              {site.tagline}
+            </h1>
+            <p className="animate-rise-delay-2 mt-5 max-w-lg text-lg leading-relaxed text-ink-2">
+              Build streaks around the places you show up — gym, studio, trail —
+              and keep daily macros in the same quiet, offline app.
+            </p>
+            <div className="animate-rise-delay-2 mt-8">
+              <StoreButtons />
+            </div>
+          </div>
+
+          <div className="animate-rise-delay-1 flex justify-center lg:justify-end">
+            <AppPreviewStack />
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line/70 bg-surface">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p className="font-display text-2xl text-ink sm:text-3xl">
+            Built for showing up
+          </p>
+          <p className="mt-3 max-w-2xl text-ink-2">
+            Two tools, one phone-first app: activity streaks tied to locations,
+            and a lightweight meal log — without accounts or servers.
+          </p>
+
+          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+            {features.map((feature) => (
+              <div key={feature.title} className="max-w-md">
+                <h2 className="font-display text-xl text-ink">{feature.title}</h2>
+                <p className="mt-2 leading-relaxed text-ink-2">{feature.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-line/70 bg-paper-2/50">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <p className="font-display text-2xl text-ink sm:text-3xl">
+            Your data stays with you
+          </p>
+          <p className="mt-3 max-w-2xl leading-relaxed text-ink-2">
+            StreakSpot does not create user accounts or sync to our servers.
+            Location is used on-device for geofencing when you allow it.
+            Notifications are local only. Read the full details in our{" "}
+            <Link
+              href="/privacy"
+              className="font-medium text-gold hover:underline"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              Privacy Policy
+            </Link>
+            .
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
