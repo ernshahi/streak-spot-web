@@ -28,8 +28,9 @@ export default function PrivacyPage() {
         <p>
           This policy describes what information is processed on your device,
           what device or platform services may be involved when you use optional
-          features (location, maps, notifications, sharing), and how you can
-          delete your data.
+          features (location, maps, notifications), and how you can delete your
+          data. First launch starts empty — you add your own activities. There is
+          no cloud backup or in-app export.
         </p>
       </LegalSection>
 
@@ -63,14 +64,9 @@ export default function PrivacyPage() {
           </li>
           <li>
             <span className="font-medium text-ink">App preferences</span> —
-            appearance (theme, corner radius, fonts, accent color), notification
-            toggles, visit-confirmation settings, and similar configuration.
-          </li>
-          <li>
-            <span className="font-medium text-ink">Optional demo data</span> —
-            on first launch with an empty activities list, the app may seed
-            sample activities so you can explore the product. Seeding does not
-            overwrite existing user data.
+            appearance (theme, accent color, and related display preferences),
+            notification toggles, visit-confirmation settings, and similar
+            configuration.
           </li>
         </ul>
         <p>
@@ -104,13 +100,15 @@ export default function PrivacyPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="Maps (Android)">
+      <LegalSection title="Maps">
         <p>
-          On Android, choosing or viewing a place on the map may use Google Maps
-          / the Maps SDK. Map tiles and related map services are provided by
-          Google and are subject to Google’s terms and privacy policy. A
-          Google Maps API key configured for the app is used to load those map
-          services; it is not used by us to collect your personal habit data.
+          When you add or edit a place, the app shows a map so you can drop a pin
+          and set a geofence radius. On iOS this uses Apple Maps (MapKit). On
+          Android it may use Google Maps / the Maps SDK. Map tiles and related
+          map services are provided by Apple or Google and are subject to their
+          terms and privacy policies. A Google Maps API key configured for the
+          Android app is used to load those map services; it is not used by us to
+          collect your personal habit data.
         </p>
       </LegalSection>
 
@@ -127,15 +125,6 @@ export default function PrivacyPage() {
         <p>
           Notification permission is optional. You can control activity and meal
           reminder settings inside the app, and in your device system settings.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Sharing">
-        <p>
-          If you choose to share a macros day summary (or use other OS share
-          sheets), the content you select is handed to the share target you pick
-          (Messages, email, and so on). That sharing is initiated by you and
-          governed by the destination app or service.
         </p>
       </LegalSection>
 

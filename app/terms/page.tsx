@@ -74,9 +74,10 @@ export default function TermsPage() {
             background location can affect battery usage.
           </li>
           <li>
-            You are responsible for backing up or exporting anything you need
-            before uninstalling or using in-app data reset. The App does not
-            provide a StreakSpot cloud backup.
+            The App does not provide a StreakSpot cloud backup or in-app export.
+            Resetting data in Settings or uninstalling the App permanently
+            deletes on-device information (subject to how your operating system
+            handles device backups).
           </li>
           <li>
             Do not use the App in any way that violates applicable law or
@@ -122,11 +123,11 @@ export default function TermsPage() {
 
       <LegalSection title="Third-party services and stores">
         <p>
-          The App may rely on operating-system services (location, notifications,
-          share sheets) and, on Android, Google Maps for map display. Your use of
-          those services is also subject to the third party’s terms. Purchases,
-          refunds, and store billing (if any) are handled by Apple or Google
-          under their store terms.
+          The App may rely on operating-system services (location, notifications)
+          and map display (Apple Maps on iOS; Google Maps on Android). Your use
+          of those services is also subject to the third party’s terms.
+          Purchases, refunds, and store billing (if any) are handled by Apple or
+          Google under their store terms.
         </p>
       </LegalSection>
 

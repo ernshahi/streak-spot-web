@@ -26,7 +26,7 @@ NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/...
 
 ## Deploy (Vercel)
 
-**Live:** [https://streak-spot.vercel.app](https://streak-spot.vercel.app)
+**Live:** [https://www.streakspot.com](https://www.streakspot.com)
 
 Project: `streak-spot` · Dashboard: [Vercel project](https://vercel.com/ernabinshahi-gmailcoms-projects/streak-spot)
 
@@ -53,16 +53,16 @@ npx vercel deploy --prod --scope ernabinshahi-gmailcoms-projects
 
 Framework preset: Next.js (auto-detected). Optional env vars from `.env.example` can be set in the Vercel project settings.
 
-### Custom domain
+### Live URLs
 
-Add `streakspot.app` (and `www` if you want) in the Vercel project → Domains when ready. Until then, the live URLs are:
+Custom domain is live:
 
-- Site: [https://streak-spot.vercel.app](https://streak-spot.vercel.app/)
-- Privacy: [https://streak-spot.vercel.app/privacy](https://streak-spot.vercel.app/privacy)
-- Terms: [https://streak-spot.vercel.app/terms](https://streak-spot.vercel.app/terms)
+- Site: [https://www.streakspot.com](https://www.streakspot.com/)
+- Privacy: [https://www.streakspot.com/privacy](https://www.streakspot.com/privacy)
+- Terms: [https://www.streakspot.com/terms](https://www.streakspot.com/terms)
 - Support: `support@streakspot.com`
 
-The mobile app defaults (`EXPO_PUBLIC_PRIVACY_POLICY_URL`) already point at the Vercel privacy URL.
+The mobile app defaults (`EXPO_PUBLIC_PRIVACY_POLICY_URL` / `EXPO_PUBLIC_TERMS_OF_USE_URL`) point at these URLs.
 
 ### Local production build
 

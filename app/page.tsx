@@ -89,6 +89,13 @@ export default function HomePage() {
               className="font-medium text-gold hover:underline"
             >
               Privacy Policy
+            </Link>{" "}
+            and{" "}
+            <Link
+              href="/terms"
+              className="font-medium text-gold hover:underline"
+            >
+              Terms of Use
             </Link>
             .
           </p>
