@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { site, supportMailto } from "@/lib/site";
+import { CopyEmail } from "@/components/CopyEmail";
+import { site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -14,16 +15,16 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-ink-2">
-          <Link href="/privacy" className="hover:text-ink">
-            Privacy Policy
-          </Link>
-          <Link href="/terms" className="hover:text-ink">
-            Terms of Use
-          </Link>
-          <a href={supportMailto} className="hover:text-ink">
-            {site.supportEmail}
-          </a>
+        <div className="flex flex-col items-start gap-2 text-sm text-ink-2 sm:items-end">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link href="/privacy" className="hover:text-ink">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-ink">
+              Terms of Use
+            </Link>
+          </div>
+          <CopyEmail />
         </div>
       </div>
       <div className="border-t border-line/60">

@@ -11,13 +11,7 @@ export function LegalDocument({
 }) {
   return (
     <div className="relative overflow-hidden">
-      <div
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(180deg, #EEF1F7 0%, #F7F8FC 35%, #FFFFFF 100%)",
-        }}
-      />
+      <div className="legal-backdrop absolute inset-0 -z-10" />
 
       <article className="mx-auto max-w-6xl px-5 pt-28 pb-20 sm:px-8 sm:pt-36">
         <div className="mx-auto max-w-3xl">

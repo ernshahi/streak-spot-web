@@ -10,11 +10,11 @@ function StorePill({
   sub: string;
 }) {
   const className =
-    "inline-flex min-w-[168px] flex-col rounded-2xl border border-ink/10 bg-ink px-5 py-3 text-left text-white transition-transform hover:-translate-y-0.5";
+    "inline-flex min-w-[168px] flex-col rounded-2xl border border-ink/10 bg-ink px-5 py-3 text-left text-paper transition-transform hover:-translate-y-0.5";
 
   const content = (
     <>
-      <span className="text-[11px] tracking-wide text-white/65 uppercase">
+      <span className="text-[11px] tracking-wide text-paper/65 uppercase">
         {sub}
       </span>
       <span className="text-base font-semibold">{label}</span>

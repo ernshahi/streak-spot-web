@@ -4,6 +4,7 @@ import { Fraunces, Source_Sans_3 } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { site } from "@/lib/site";
+import { themeInitScript } from "@/lib/theme";
 
 import "./globals.css";
 
@@ -58,7 +59,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} h-full`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} h-full`}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="flex min-h-full flex-col antialiased">
         <SiteHeader />
         <main className="flex-1">{children}</main>

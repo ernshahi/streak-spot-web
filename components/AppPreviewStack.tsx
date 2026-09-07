@@ -37,13 +37,7 @@ export function AppPreviewStack() {
       role="group"
       aria-label="App screenshots"
     >
-      <div
-        className="absolute top-1/2 left-1/2 -z-10 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(160,122,48,0.22) 0%, transparent 68%)",
-        }}
-      />
+      <div className="hero-glow-gold absolute top-1/2 left-1/2 -z-10 h-[65%] w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70" />
 
       {panels.map((panel) => {
         const isActive = activeId === panel.id;
@@ -62,7 +56,7 @@ export function AppPreviewStack() {
               filter: isActive ? "brightness(1)" : "brightness(0.96)",
             }}
           >
-            <span className="block overflow-hidden rounded-[1.55rem] border border-ink/10 bg-ink shadow-[0_24px_50px_-18px_rgba(27,39,66,0.55)] ring-1 ring-white/50 transition-shadow duration-300 hover:shadow-[0_28px_56px_-16px_rgba(27,39,66,0.6)]">
+            <span className="block overflow-hidden rounded-[1.55rem] border border-ink/10 bg-paper-3 shadow-[0_24px_50px_-18px_rgba(18,24,32,0.55)] ring-1 ring-surface/60 transition-shadow duration-300 hover:shadow-[0_28px_56px_-16px_rgba(18,24,32,0.65)]">
               <Image
                 src={panel.src}
                 alt={panel.alt}

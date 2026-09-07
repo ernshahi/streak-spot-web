@@ -27,27 +27,9 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-x-clip">
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background:
-              "linear-gradient(160deg, #EEF1F7 0%, #E8ECF4 42%, #E2E8F2 72%, #D9E0EC 100%)",
-          }}
-        />
-        <div
-          className="pointer-events-none absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full opacity-50"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(160,122,48,0.28), transparent 70%)",
-          }}
-        />
-        <div
-          className="pointer-events-none absolute bottom-[-20%] left-[-8%] h-[380px] w-[380px] rounded-full opacity-40"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(27,39,66,0.12), transparent 70%)",
-          }}
-        />
+        <div className="hero-backdrop absolute inset-0 -z-10" />
+        <div className="hero-glow-gold pointer-events-none absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full opacity-50" />
+        <div className="hero-glow-ink pointer-events-none absolute bottom-[-20%] left-[-8%] h-[380px] w-[380px] rounded-full opacity-40" />
 
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-28 pb-20 sm:px-8 sm:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
           <div>

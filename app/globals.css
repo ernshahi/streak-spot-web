@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --ink: #1b2742;
   --ink-2: #44506a;
   --ink-3: #6b7488;
@@ -14,6 +15,59 @@
   --gold-bright: #c49a3c;
   --background: var(--paper);
   --foreground: var(--ink);
+  --hero-gradient: linear-gradient(
+    160deg,
+    #eef1f7 0%,
+    #e8ecf4 42%,
+    #e2e8f2 72%,
+    #d9e0ec 100%
+  );
+  --hero-glow-gold: radial-gradient(
+    circle,
+    rgba(160, 122, 48, 0.28),
+    transparent 70%
+  );
+  --hero-glow-ink: radial-gradient(
+    circle,
+    rgba(27, 39, 66, 0.12),
+    transparent 70%
+  );
+  --legal-gradient: linear-gradient(180deg, #eef1f7 0%, #f7f8fc 35%, #ffffff 100%);
+}
+
+.dark {
+  color-scheme: dark;
+  --ink: #e8ecf4;
+  --ink-2: #b4bccb;
+  --ink-3: #8b93a5;
+  --paper: #121820;
+  --paper-2: #171e28;
+  --paper-3: #1c2430;
+  --surface: #1a222e;
+  --line: #2a3444;
+  --gold: #c49a3c;
+  --gold-soft: #2a2418;
+  --gold-bright: #d4ae55;
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --hero-gradient: linear-gradient(
+    160deg,
+    #121820 0%,
+    #171e28 42%,
+    #1c2430 72%,
+    #151c26 100%
+  );
+  --hero-glow-gold: radial-gradient(
+    circle,
+    rgba(196, 154, 60, 0.22),
+    transparent 70%
+  );
+  --hero-glow-ink: radial-gradient(
+    circle,
+    rgba(232, 236, 244, 0.06),
+    transparent 70%
+  );
+  --legal-gradient: linear-gradient(180deg, #121820 0%, #171e28 40%, #1a222e 100%);
 }
 
 @theme inline {
@@ -42,11 +96,30 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 ::selection {
   background: var(--gold-soft);
   color: var(--ink);
+}
+
+.hero-backdrop {
+  background: var(--hero-gradient);
+}
+
+.hero-glow-gold {
+  background: var(--hero-glow-gold);
+}
+
+.hero-glow-ink {
+  background: var(--hero-glow-ink);
+}
+
+.legal-backdrop {
+  background: var(--legal-gradient);
 }
 
 @keyframes rise {
@@ -117,6 +190,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  body {
+    transition: none;
   }
 
   .animate-rise,

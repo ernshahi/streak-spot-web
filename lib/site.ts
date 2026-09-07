@@ -5,8 +5,8 @@ export const site = {
     "StreakSpot tracks place-based activity streaks and daily macros entirely on your phone — no account, no cloud.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL?.trim().replace(/\/$/, "") ||
-    "https://streakspot.app",
-  supportEmail: "hello@streakspot.app",
+    "https://streak-spot.vercel.app",
+  supportEmail: "support@streakspot.com",
   // Set these when store listings go live; leave empty to show “Coming soon”.
   appStoreUrl: process.env.NEXT_PUBLIC_APP_STORE_URL?.trim() || "",
   playStoreUrl: process.env.NEXT_PUBLIC_PLAY_STORE_URL?.trim() || "",
