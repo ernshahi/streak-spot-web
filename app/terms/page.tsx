@@ -36,7 +36,9 @@ export default function TermsPage() {
           <strong className="font-semibold text-ink">
             place-based activity streaks
           </strong>{" "}
-          (via geofencing and/or manual visits) and{" "}
+          (via optional geofencing and/or manual visits), optional{" "}
+          <strong className="font-semibold text-ink">clock reminders</strong> on
+          activities, and{" "}
           <strong className="font-semibold text-ink">manual meal / macro logs</strong>
           . The App stores your data on your device and does not require a
           StreakSpot account or cloud sync.
@@ -66,7 +68,8 @@ export default function TermsPage() {
         <ul className="list-disc space-y-2 pl-5">
           <li>
             You are responsible for the accuracy of activities, locations,
-            visits, and meal entries you create.
+            visits, reminder times, profile details, and meal entries you
+            create.
           </li>
           <li>
             You are responsible for granting, denying, or revoking device
@@ -74,10 +77,11 @@ export default function TermsPage() {
             background location can affect battery usage.
           </li>
           <li>
-            The App does not provide a StreakSpot cloud backup or in-app export.
-            Resetting data in Settings or uninstalling the App permanently
-            deletes on-device information (subject to how your operating system
-            handles device backups).
+            The App does not provide a StreakSpot cloud backup. You may export
+            or restore a local JSON file through the system share sheet. You are
+            responsible for that file. Resetting data in Settings or
+            uninstalling the App permanently deletes on-device information
+            (subject to how your operating system handles device backups).
           </li>
           <li>
             Do not use the App in any way that violates applicable law or
@@ -95,17 +99,23 @@ export default function TermsPage() {
           visits manually.
         </p>
         <p>
-          Local notifications are optional. The App does not rely on remote push
-          from our servers.
+          Local notifications are optional (check-in alerts, confirm-visit,
+          per-activity clock reminders, and meal reminders). Clock reminders do
+          not log a visit. The App does not rely on remote push from our
+          servers.
         </p>
       </LegalSection>
 
       <LegalSection title="No medical or professional advice">
         <p>
-          Macro tracking is a convenience feature based on values{" "}
-          <strong className="font-semibold text-ink">you enter</strong>. The App
-          does not provide medical, nutritional, or fitness advice, diagnoses, or
-          treatment. Consult a qualified professional for health decisions.
+          Macro tracking is a convenience feature. Meal calories and macros are
+          values{" "}
+          <strong className="font-semibold text-ink">you enter</strong>. Optional
+          profile setup estimates daily targets on the device from details you
+          provide; those numbers are estimates you can edit, not medical,
+          nutritional, or fitness advice, diagnoses, or treatment. Consult a
+          qualified professional for health decisions. Activity reminders
+          (including medication times) do not confirm that a dose was taken.
         </p>
       </LegalSection>
 
@@ -139,8 +149,9 @@ export default function TermsPage() {
           NON-INFRINGEMENT, TO THE MAXIMUM EXTENT PERMITTED BY LAW.
         </p>
         <p>
-          We do not warrant that streaks, geofence detection, notifications, or
-          calorie totals will be uninterrupted, accurate, or error-free.
+          We do not warrant that streaks, geofence detection, notifications,
+          reminder times, estimated macro goals, or calorie totals will be
+          uninterrupted, accurate, or error-free.
         </p>
       </LegalSection>
 

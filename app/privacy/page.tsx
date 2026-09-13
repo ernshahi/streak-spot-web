@@ -28,9 +28,11 @@ export default function PrivacyPage() {
         <p>
           This policy describes what information is processed on your device,
           what device or platform services may be involved when you use optional
-          features (location, maps, notifications), and how you can delete your
-          data. First launch starts empty — you add your own activities. There is
-          no cloud backup or in-app export.
+          features (location, maps, notifications, local backup), and how you
+          can delete your data. First launch starts empty — you add your own
+          activities or load sample templates. There is no StreakSpot cloud
+          backup. You can export or restore a JSON file on the device through
+          the system share sheet.
         </p>
       </LegalSection>
 
@@ -44,7 +46,8 @@ export default function PrivacyPage() {
           <li>
             <span className="font-medium text-ink">Activities</span> — names,
             icons/colors, active weekdays / rest days, start dates, minimum
-            on-site duration, and related settings.
+            on-site duration, optional clock reminder times, and related
+            settings.
           </li>
           <li>
             <span className="font-medium text-ink">Locations</span> — map pins
@@ -60,7 +63,9 @@ export default function PrivacyPage() {
           <li>
             <span className="font-medium text-ink">Meals / macros</span> — meal
             names, calories, optional protein / carbs / fat, and timestamps;
-            plus your daily macro goals and meal-reminder preferences.
+            daily macro goals; optional meal-reminder preferences; and, if you
+            use profile setup, height, weight, age, gender, activity level, and
+            goal used only to estimate those targets on the device.
           </li>
           <li>
             <span className="font-medium text-ink">App preferences</span> —
@@ -118,13 +123,28 @@ export default function PrivacyPage() {
           <strong className="font-semibold text-ink">
             local notifications only
           </strong>{" "}
-          (for example check-in / check-out alerts, confirm-visit reminders, and
-          optional meal reminders you schedule). The app does not use remote push
-          notification delivery through our servers.
+          (for example check-in / check-out alerts, confirm-visit reminders,
+          optional per-activity clock reminders, and optional meal reminders you
+          schedule). Activity clock reminders do not log a visit or change streak
+          math. The app does not use remote push notification delivery through
+          our servers.
         </p>
         <p>
           Notification permission is optional. You can control activity and meal
           reminder settings inside the app, and in your device system settings.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Local backup">
+        <p>
+          Settings lets you <strong className="font-semibold text-ink">export</strong>{" "}
+          a JSON backup (activities, reminders, visits, meals, goals,
+          preferences, and saved places) through the system share sheet — for
+          example Files or AirDrop.{" "}
+          <strong className="font-semibold text-ink">Restore</strong> replaces
+          the data on this device with that file after you confirm. We do not
+          receive or store the backup. Anyone you share the file with can read
+          it; treat it like other personal files on your device.
         </p>
       </LegalSection>
 
@@ -153,18 +173,25 @@ export default function PrivacyPage() {
         <p>On-device information is used only to provide app features, such as:</p>
         <ul className="list-disc space-y-2 pl-5">
           <li>Automatic and manual visit logging and streak calculation.</li>
-          <li>Macro totals, goals, calendars, and meal reminders.</li>
+          <li>Optional activity clock reminders and meal reminders.</li>
+          <li>
+            Macro totals, goals, calendars, and (if you choose) on-device
+            estimates from a profile you enter.
+          </li>
           <li>Remembering your appearance and notification preferences.</li>
+          <li>Local export and restore of a backup file you control.</li>
         </ul>
       </LegalSection>
 
       <LegalSection title="Retention and deletion">
         <p>
-          Data remains on your device until you delete it. You can reset
-          activities (and related locations / visits) or reset macros (meals,
-          default goals, and meal reminders) from Settings in the app. Uninstalling{" "}
-          {site.name} also removes the app’s local storage, subject to how your
-          operating system handles backups.
+          Data remains on your device until you delete it. From Settings you can
+          reset activities (and related locations, reminders, and visits), reset
+          macros (meals, default goals, meal reminders, and setup profile), or
+          reset the entire app. Uninstalling {site.name} also removes the app’s
+          local storage, subject to how your operating system handles device
+          backups. A file you exported earlier is not deleted unless you delete
+          it yourself.
         </p>
       </LegalSection>
 

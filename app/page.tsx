@@ -7,19 +7,27 @@ import { site } from "@/lib/site";
 const features = [
   {
     title: "Place-based streaks",
-    body: "Tie habits to real locations. Geofences check you in when you arrive — even if the app is closed.",
+    body: "Tie a habit to a real place — gym, class, studio — or skip the pin and stay manual-only. Geofences can check you in when you arrive, even if the app is closed.",
   },
   {
     title: "Manual when you need it",
-    body: "Log visits by hand, confirm automatic check-ins, or skip Always location and stay fully manual.",
+    body: "Log visits by hand, confirm automatic check-ins so a GPS glitch does not count, or skip Always location entirely. Rest days and a start date stay in the streak math.",
+  },
+  {
+    title: "Clock reminders",
+    body: "Add optional times on any activity — medication, a class, a walk. They ping on your active weekdays only. A reminder never logs a visit or changes your streak.",
   },
   {
     title: "Macros, simply",
-    body: "Track calories and optional protein, carbs, and fat. Daily goals, calendar history, and optional meal reminders.",
+    body: "Log meals with calories (protein, carbs, and fat optional). Optional profile setup estimates daily goals; you can edit or skip. Day view, calendar, and meal reminders — no camera or food search.",
   },
   {
     title: "Private by design",
-    body: "No account. No cloud sync. Everything lives in on-device SQLite until you delete it or reset in Settings.",
+    body: "No account. No cloud sync. Everything lives in on-device SQLite until you reset it or uninstall.",
+  },
+  {
+    title: "Backup you keep",
+    body: "Export a JSON file through the share sheet (Files, AirDrop). Restore replaces what is on the phone. We never upload that file.",
   },
 ] as const;
 
@@ -40,8 +48,9 @@ export default function HomePage() {
               {site.tagline}
             </h1>
             <p className="animate-rise-delay-2 mt-5 max-w-lg text-lg leading-relaxed text-ink-2">
-              Build streaks around the places you show up — gym, studio, trail —
-              and keep daily macros in the same quiet, offline app.
+              Build streaks for the gym, class, or any place you show up —
+              check in when you arrive or by hand. Keep daily macros on the same
+              phone. No account. No cloud.
             </p>
             <div className="animate-rise-delay-2 mt-8">
               <StoreButtons />
@@ -60,8 +69,8 @@ export default function HomePage() {
             Built for showing up
           </p>
           <p className="mt-3 max-w-2xl text-ink-2">
-            Two tools, one phone-first app: activity streaks tied to locations,
-            and a lightweight meal log — without accounts or servers.
+            One iPhone app: activity streaks (place or manual), optional clock
+            reminders, and a lightweight meal log — without accounts or servers.
           </p>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
@@ -83,7 +92,8 @@ export default function HomePage() {
           <p className="mt-3 max-w-2xl leading-relaxed text-ink-2">
             StreakSpot does not create user accounts or sync to our servers.
             Location is used on-device for geofencing when you allow it.
-            Notifications are local only. Read the full details in our{" "}
+            Notifications are local only. A backup is a file you save — not a
+            StreakSpot cloud. Read the full details in our{" "}
             <Link
               href="/privacy"
               className="font-medium text-gold hover:underline"
