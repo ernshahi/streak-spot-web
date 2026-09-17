@@ -5,7 +5,7 @@ import { site, supportMailto } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${site.name} handles information on your device — offline, no account, no cloud sync.`,
+  description: `How ${site.name} handles information on your device — offline, no account, no ads. App Privacy: data not collected.`,
   alternates: { canonical: "/privacy" },
 };
 
@@ -18,11 +18,15 @@ export default function PrivacyPage() {
           streaks and manual macro / meal tracking. The app is designed to work{" "}
           <strong className="font-semibold text-ink">offline</strong>. We do{" "}
           <strong className="font-semibold text-ink">not</strong> require an
-          account, and we do{" "}
+          account, we do{" "}
+          <strong className="font-semibold text-ink">not show ads</strong>, and
+          we do{" "}
           <strong className="font-semibold text-ink">
             not operate a StreakSpot backend that receives your habit, location,
             meal, or settings data
           </strong>
+          . On the App Store, our App Privacy label is{" "}
+          <strong className="font-semibold text-ink">Data Not Collected</strong>
           .
         </p>
         <p>
@@ -153,12 +157,15 @@ export default function PrivacyPage() {
           <li>No StreakSpot user accounts or sign-in.</li>
           <li>No StreakSpot cloud sync or backend database of your habits.</li>
           <li>
-            No advertising network, analytics SDK, or crash-reporting service
-            operated by us in the current product.
+            No advertising, tracking, analytics SDK, or crash-reporting service
+            operated by us.
           </li>
           <li>
             No food database lookups, barcode scanning, meal photos, HealthKit /
             Google Fit sync, or similar third-party health connectors.
+          </li>
+          <li>
+            Apple App Privacy: we do not collect data from this app.
           </li>
         </ul>
         <p>

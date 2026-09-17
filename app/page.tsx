@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 const features = [
   {
     title: "Place-based streaks",
-    body: "Tie a habit to a real place — gym, class, studio — or skip the pin and stay manual-only. Geofences can check you in when you arrive, even if the app is closed.",
+    body: "Tie a habit to a real place — gym, class, studio — or skip the pin and stay manual-only. Load samples if you want a head start. Geofences can check you in when you arrive, even if the app is closed.",
   },
   {
     title: "Manual when you need it",
@@ -19,11 +19,11 @@ const features = [
   },
   {
     title: "Macros, simply",
-    body: "Log meals with calories (protein, carbs, and fat optional). Optional profile setup estimates daily goals; you can edit or skip. Day view, calendar, and meal reminders — no camera or food search.",
+    body: "Log meals with calories (protein, carbs, and fat optional). Optional profile setup estimates daily goals; you can edit or skip. Day view, calendar, and meal reminders — no camera, barcode, food search, or AI.",
   },
   {
     title: "Private by design",
-    body: "No account. No cloud sync. Everything lives in on-device SQLite until you reset it or uninstall.",
+    body: "No account. No cloud sync. No ads. Everything lives in on-device SQLite until you export it, reset it, or uninstall. Apple App Privacy: data not collected.",
   },
   {
     title: "Backup you keep",
@@ -48,9 +48,9 @@ export default function HomePage() {
               {site.tagline}
             </h1>
             <p className="animate-rise-delay-2 mt-5 max-w-lg text-lg leading-relaxed text-ink-2">
-              Build streaks for the gym, class, or any place you show up —
-              check in when you arrive or by hand. Keep daily macros on the same
-              phone. No account. No cloud.
+              Build streaks for the gym, class, or any place you go — check in
+              when you arrive or by hand. Keep daily macros on the same phone.
+              No account. No cloud. No ads.
             </p>
             <div className="animate-rise-delay-2 mt-8">
               <StoreButtons />
@@ -70,7 +70,8 @@ export default function HomePage() {
           </p>
           <p className="mt-3 max-w-2xl text-ink-2">
             One iPhone app: activity streaks (place or manual), optional clock
-            reminders, and a lightweight meal log — without accounts or servers.
+            reminders, and a lightweight meal log — without accounts, servers,
+            or ads.
           </p>
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
@@ -93,7 +94,8 @@ export default function HomePage() {
             StreakSpot does not create user accounts or sync to our servers.
             Location is used on-device for geofencing when you allow it.
             Notifications are local only. A backup is a file you save — not a
-            StreakSpot cloud. Read the full details in our{" "}
+            StreakSpot cloud. Apple’s App Privacy label is data not collected.
+            Read the full details in our{" "}
             <Link
               href="/privacy"
               className="font-medium text-gold hover:underline"

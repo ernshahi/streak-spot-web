@@ -6,22 +6,25 @@ import { useState } from "react";
 const panels = [
   {
     id: "activities",
-    src: "/screenshots/activities.png",
-    alt: "StreakSpot Activities screen with streaks and check-ins",
+    lightSrc: "/screenshots/activities.webp",
+    darkSrc: "/screenshots/dark/activities.webp",
+    alt: "StreakSpot Activities list with streaks, rest days, and check-ins",
     transform:
       "translate(-50%, -50%) translateX(var(--spread-x-neg)) rotate(-9deg)",
   },
   {
     id: "macros",
-    src: "/screenshots/macros.png",
-    alt: "StreakSpot Macros screen with daily progress and meals",
+    lightSrc: "/screenshots/macros.webp",
+    darkSrc: "/screenshots/dark/macros.webp",
+    alt: "StreakSpot Macros tab with calorie goals and a logged breakfast",
     transform:
       "translate(-50%, -50%) translateX(var(--spread-x)) rotate(9deg)",
   },
   {
     id: "home",
-    src: "/screenshots/home.png",
-    alt: "StreakSpot Home screen with today’s activities and macros",
+    lightSrc: "/screenshots/home.webp",
+    darkSrc: "/screenshots/dark/home.webp",
+    alt: "StreakSpot Home with today’s macros, activities, and check-in pills",
     transform: "translate(-50%, -50%)",
   },
 ] as const;
@@ -33,7 +36,7 @@ export function AppPreviewStack() {
 
   return (
     <div
-      className="preview-float preview-stack relative mx-auto h-[440px] w-full max-w-[560px] sm:h-[520px] sm:max-w-[620px] lg:max-w-[680px]"
+      className="preview-float preview-stack relative mx-auto h-[480px] w-full max-w-[560px] sm:h-[560px] sm:max-w-[640px] lg:max-w-[720px]"
       role="group"
       aria-label="App screenshots"
     >
@@ -49,24 +52,33 @@ export function AppPreviewStack() {
             onClick={() => setActiveId(panel.id)}
             aria-pressed={isActive}
             aria-label={`Bring ${panel.id} screen to front`}
-            className="absolute top-1/2 left-1/2 w-[168px] cursor-pointer border-0 bg-transparent p-0 transition-[transform,filter] duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-[200px] lg:w-[220px]"
+            className="absolute top-1/2 left-1/2 w-[184px] cursor-pointer border-0 bg-transparent p-0 transition-[transform,filter] duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold sm:w-[220px] lg:w-[248px]"
             style={{
               transform: `${panel.transform} scale(${isActive ? 1.05 : 0.92})`,
               zIndex: isActive ? 20 : 2,
               filter: isActive ? "brightness(1)" : "brightness(0.96)",
             }}
           >
-            <span className="block overflow-hidden rounded-[1.55rem] border border-ink/10 bg-paper-3 shadow-[0_24px_50px_-18px_rgba(18,24,32,0.55)] ring-1 ring-surface/60 transition-shadow duration-300 hover:shadow-[0_28px_56px_-16px_rgba(18,24,32,0.65)]">
-              <Image
-                src={panel.src}
-                alt={panel.alt}
-                width={470}
-                height={1024}
-                className="pointer-events-none h-auto w-full"
-                sizes="(max-width: 640px) 168px, (max-width: 1024px) 200px, 220px"
-                priority
-              />
-            </span>
+            <Image
+              src={panel.lightSrc}
+              alt={panel.alt}
+              width={720}
+              height={1470}
+              className="pointer-events-none h-auto w-full drop-shadow-[0_22px_40px_rgba(18,24,32,0.35)]"
+              style={{ display: "var(--preview-light-display)" }}
+              sizes="(max-width: 640px) 184px, (max-width: 1024px) 220px, 248px"
+              priority={panel.id === "home"}
+            />
+            <Image
+              src={panel.darkSrc}
+              alt={panel.alt}
+              width={720}
+              height={1470}
+              className="pointer-events-none h-auto w-full drop-shadow-[0_22px_40px_rgba(18,24,32,0.45)]"
+              style={{ display: "var(--preview-dark-display)" }}
+              sizes="(max-width: 640px) 184px, (max-width: 1024px) 220px, 248px"
+              priority={panel.id === "home"}
+            />
           </button>
         );
       })}

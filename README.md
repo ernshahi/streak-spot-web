@@ -17,12 +17,17 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Optional store links (see `.env.example`):
+Store buttons (see `.env.example`):
+
+- App Store URL empty → **In review** (iPhone 1.0 submitted 17 Sep 2026, ASC App ID `6811304319`)
+- Play URL empty → **Coming soon** (Android not submitted yet)
 
 ```bash
-NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/...
+NEXT_PUBLIC_APP_STORE_URL=https://apps.apple.com/app/id6811304319
 NEXT_PUBLIC_PLAY_STORE_URL=https://play.google.com/...
 ```
+
+Set `NEXT_PUBLIC_APP_STORE_URL` in Vercel when Apple publishes the listing. The public `apps.apple.com` page 404s until then — do not link it early.
 
 ## Deploy (Vercel)
 

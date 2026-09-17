@@ -40,8 +40,8 @@ export default function TermsPage() {
           <strong className="font-semibold text-ink">clock reminders</strong> on
           activities, and{" "}
           <strong className="font-semibold text-ink">manual meal / macro logs</strong>
-          . The App stores your data on your device and does not require a
-          StreakSpot account or cloud sync.
+          . The App stores your data on your device, does not require a
+          StreakSpot account or cloud sync, and does not show ads.
         </p>
         <p>
           Features, design, and availability may change over time. Store listing

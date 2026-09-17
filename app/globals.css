@@ -33,6 +33,8 @@
     transparent 70%
   );
   --legal-gradient: linear-gradient(180deg, #eef1f7 0%, #f7f8fc 35%, #ffffff 100%);
+  --preview-light-display: block;
+  --preview-dark-display: none;
 }
 
 .dark {
@@ -68,6 +70,8 @@
     transparent 70%
   );
   --legal-gradient: linear-gradient(180deg, #121820 0%, #171e28 40%, #1a222e 100%);
+  --preview-light-display: none;
+  --preview-dark-display: block;
 }
 
 @theme inline {

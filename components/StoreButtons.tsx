@@ -1,4 +1,4 @@
-import { site, supportMailto } from "@/lib/site";
+import { site } from "@/lib/site";
 
 function StorePill({
   href,
@@ -40,8 +40,6 @@ function StorePill({
 }
 
 export function StoreButtons() {
-  const hasStores = Boolean(site.appStoreUrl || site.playStoreUrl);
-
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -52,7 +50,7 @@ export function StoreButtons() {
             label="App Store"
           />
         ) : (
-          <StorePill sub="Coming soon" label="App Store" />
+          <StorePill sub="In review" label="App Store" />
         )}
         {site.playStoreUrl ? (
           <StorePill
@@ -64,16 +62,10 @@ export function StoreButtons() {
           <StorePill sub="Coming soon" label="Google Play" />
         )}
       </div>
-      {!hasStores ? (
-        <a
-          href={supportMailto}
-          className="inline-flex w-fit items-center gap-1.5 rounded-full border border-gold/30 bg-gold-soft px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-gold/50 hover:bg-gold/15"
-        >
-          Ask for early access
-          <span aria-hidden className="text-gold">
-            →
-          </span>
-        </a>
+      {!site.appStoreUrl ? (
+        <p className="max-w-md text-sm leading-relaxed text-ink-3">
+          iPhone 1.0 is in App Store review.
+        </p>
       ) : null}
     </div>
   );

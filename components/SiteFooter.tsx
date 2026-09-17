@@ -10,8 +10,8 @@ export function SiteFooter() {
         <div>
           <p className="font-display text-lg text-ink">{site.name}</p>
           <p className="mt-1 max-w-sm text-sm text-ink-3">
-            Offline habit tracking for places and macros. Data stays on your
-            device.
+            Offline iPhone habit tracking for places and macros. No account, no
+            cloud, no ads.
           </p>
         </div>
 
