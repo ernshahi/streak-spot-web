@@ -39,8 +39,8 @@ export default function HomePage() {
         <div className="hero-glow-gold pointer-events-none absolute -top-24 right-[-10%] h-[420px] w-[420px] rounded-full opacity-50" />
         <div className="hero-glow-ink pointer-events-none absolute bottom-[-20%] left-[-8%] h-[380px] w-[380px] rounded-full opacity-40" />
 
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-28 pb-20 sm:px-8 sm:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:pb-28">
-          <div>
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 pt-28 pb-20 sm:px-8 sm:pt-36 lg:grid-cols-[1.05fr_0.95fr] lg:grid-rows-[auto_auto] lg:gap-x-16 lg:gap-y-8 lg:pb-28">
+          <div className="lg:col-start-1 lg:row-start-1">
             <p className="animate-rise font-display text-4xl tracking-tight text-ink sm:text-5xl lg:text-6xl">
               {site.name}
             </p>
@@ -52,13 +52,14 @@ export default function HomePage() {
               when you arrive or by hand. Keep daily macros on the same phone.
               No account. No cloud. No ads.
             </p>
-            <div className="animate-rise-delay-2 mt-8">
-              <StoreButtons />
-            </div>
           </div>
 
-          <div className="animate-rise-delay-1 flex justify-center lg:justify-end">
+          <div className="animate-rise-delay-1 flex justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:justify-end">
             <AppPreviewStack />
+          </div>
+
+          <div className="animate-rise-delay-2 lg:col-start-1 lg:row-start-2">
+            <StoreButtons />
           </div>
         </div>
       </section>
