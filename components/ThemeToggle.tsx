@@ -44,7 +44,19 @@ function MoonIcon({ className }: { className?: string }) {
   );
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({
+  toggleLabel = "Toggle color theme",
+  lightModeLabel = "Light mode",
+  darkModeLabel = "Dark mode",
+  switchToLightLabel = "Switch to light theme",
+  switchToDarkLabel = "Switch to dark theme",
+}: {
+  toggleLabel?: string;
+  lightModeLabel?: string;
+  darkModeLabel?: string;
+  switchToLightLabel?: string;
+  switchToDarkLabel?: string;
+} = {}) {
   const [theme, setTheme] = useState<Theme>("light");
   const [ready, setReady] = useState(false);
 
@@ -72,11 +84,11 @@ export function ThemeToggle() {
       aria-label={
         ready
           ? theme === "dark"
-            ? "Switch to light theme"
-            : "Switch to dark theme"
-          : "Toggle color theme"
+            ? switchToLightLabel
+            : switchToDarkLabel
+          : toggleLabel
       }
-      title={theme === "dark" ? "Light mode" : "Dark mode"}
+      title={theme === "dark" ? lightModeLabel : darkModeLabel}
     >
       {theme === "dark" ? (
         <SunIcon className="size-4" />

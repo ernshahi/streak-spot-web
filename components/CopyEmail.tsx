@@ -4,7 +4,19 @@ import { useEffect, useRef, useState } from "react";
 
 import { site, supportMailto } from "@/lib/site";
 
-export function CopyEmail() {
+export function CopyEmail({
+  copyLabel = "Copy email",
+  copiedLabel = "Copied",
+  copyAria = "Copy {{email}}",
+  copiedAria = "Email copied",
+  supportSubject,
+}: {
+  copyLabel?: string;
+  copiedLabel?: string;
+  copyAria?: string;
+  copiedAria?: string;
+  supportSubject?: string;
+}) {
   const [copied, setCopied] = useState(false);
   const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -25,17 +37,19 @@ export function CopyEmail() {
     }
   }
 
+  const ariaCopy = copyAria.replace("{{email}}", site.supportEmail);
+
   return (
     <span className="inline-flex items-center gap-1.5">
-      <a href={supportMailto} className="hover:text-ink">
+      <a href={supportMailto(supportSubject)} className="hover:text-ink">
         {site.supportEmail}
       </a>
       <button
         type="button"
         onClick={copyEmail}
         className="inline-flex size-7 shrink-0 items-center justify-center rounded-md text-ink-3 transition-colors hover:bg-line/70 hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-        aria-label={copied ? "Email copied" : `Copy ${site.supportEmail}`}
-        title={copied ? "Copied" : "Copy email"}
+        aria-label={copied ? copiedAria : ariaCopy}
+        title={copied ? copiedLabel : copyLabel}
       >
         {copied ? (
           <svg

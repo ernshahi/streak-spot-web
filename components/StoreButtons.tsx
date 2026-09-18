@@ -1,3 +1,5 @@
+import { getMessages } from "@/lib/i18n/getLocale";
+import type { Messages } from "@/lib/i18n/messages/types";
 import { site } from "@/lib/site";
 
 function AppleMark() {
@@ -58,48 +60,63 @@ function StorePill({
     );
   }
 
+  const external = href.startsWith("http");
   return (
     <a
       href={href}
       className={className}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
     >
       {content}
     </a>
   );
 }
 
-export function StoreButtons() {
+export async function StoreButtons({
+  store,
+}: {
+  store?: Messages["store"];
+} = {}) {
+  const messages = store ?? (await getMessages()).store;
+
   return (
     <div className="flex w-full max-w-none flex-col gap-2.5 lg:max-w-md">
       <div className="flex flex-row items-stretch gap-2 sm:gap-3">
         {site.appStoreUrl ? (
           <StorePill
             href={site.appStoreUrl}
-            sub="Download on the"
-            label="App Store"
+            sub={messages.downloadOnThe}
+            label={messages.appStore}
             icon="apple"
           />
         ) : (
-          <StorePill sub="In review" label="App Store" icon="apple" />
+          <StorePill
+            sub={messages.inReview}
+            label={messages.appStore}
+            icon="apple"
+          />
         )}
         {site.playStoreUrl ? (
           <StorePill
             href={site.playStoreUrl}
-            sub="Get it on"
-            label="Google Play"
+            sub={messages.getItOn}
+            label={messages.googlePlay}
             icon="play"
           />
         ) : (
-          <StorePill sub="Coming soon" label="Google Play" icon="play" />
+          <StorePill
+            href={site.androidPagePath}
+            sub={messages.getTheApk}
+            label={messages.downloadApk}
+            icon="play"
+          />
         )}
       </div>
-      {!site.appStoreUrl ? (
-        <p className="text-sm leading-relaxed text-ink-3">
-          iPhone 1.0 is in App Store review.
-        </p>
-      ) : null}
+      <p className="text-sm leading-relaxed text-ink-3">
+        {!site.appStoreUrl ? messages.reviewNote : null}
+        {!site.appStoreUrl && !site.playStoreUrl ? " " : null}
+        {!site.playStoreUrl ? messages.apkNote : null}
+      </p>
     </div>
   );
 }

@@ -1,246 +1,41 @@
 import type { Metadata } from "next";
 
-import { LegalDocument, LegalSection } from "@/components/LegalDocument";
-import { site, supportMailto } from "@/lib/site";
+import {
+  LegalBlock,
+  LegalDocument,
+  LegalSection,
+} from "@/components/LegalDocument";
+import { getMessages } from "@/lib/i18n/getLocale";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `How ${site.name} handles information on your device — offline, no account, no ads. App Privacy: data not collected.`,
-  alternates: { canonical: "/privacy" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const messages = await getMessages();
+  return {
+    title: messages.privacy.title,
+    description: messages.privacy.metaDescription,
+    alternates: { canonical: "/privacy" },
+  };
+}
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const messages = await getMessages();
+
   return (
-    <LegalDocument title="Privacy Policy">
-      <LegalSection title="Overview">
-        <p>
-          {site.name} (“we,” “us”) is a mobile app for place-based activity
-          streaks and manual macro / meal tracking. The app is designed to work{" "}
-          <strong className="font-semibold text-ink">offline</strong>. We do{" "}
-          <strong className="font-semibold text-ink">not</strong> require an
-          account, we do{" "}
-          <strong className="font-semibold text-ink">not show ads</strong>, and
-          we do{" "}
-          <strong className="font-semibold text-ink">
-            not operate a StreakSpot backend that receives your habit, location,
-            meal, or settings data
-          </strong>
-          . On the App Store, our App Privacy label is{" "}
-          <strong className="font-semibold text-ink">Data Not Collected</strong>
-          .
-        </p>
-        <p>
-          This policy describes what information is processed on your device,
-          what device or platform services may be involved when you use optional
-          features (location, maps, notifications, local backup), and how you
-          can delete your data. First launch starts empty — you add your own
-          activities or load sample templates. There is no StreakSpot cloud
-          backup. You can export or restore a JSON file on the device through
-          the system share sheet.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Information stored on your device">
-        <p>
-          When you use {site.name}, the following categories of information may
-          be stored locally in an on-device SQLite database (and related app
-          storage):
-        </p>
-        <ul className="list-disc space-y-2 pl-5">
-          <li>
-            <span className="font-medium text-ink">Activities</span> — names,
-            icons/colors, active weekdays / rest days, start dates, minimum
-            on-site duration, optional clock reminder times, and related
-            settings.
-          </li>
-          <li>
-            <span className="font-medium text-ink">Locations</span> — map pins
-            (latitude / longitude), geofence radius, and metadata used to
-            prioritize which regions are monitored.
-          </li>
-          <li>
-            <span className="font-medium text-ink">Visits</span> — check-in /
-            check-out times, confirmation status (for example pending, confirmed,
-            expired), whether a visit came from a geofence or was logged
-            manually, and optional location tags.
-          </li>
-          <li>
-            <span className="font-medium text-ink">Meals / macros</span> — meal
-            names, calories, optional protein / carbs / fat, and timestamps;
-            daily macro goals; optional meal-reminder preferences; and, if you
-            use profile setup, height, weight, age, gender, activity level, and
-            goal used only to estimate those targets on the device.
-          </li>
-          <li>
-            <span className="font-medium text-ink">App preferences</span> —
-            appearance (theme, accent color, and related display preferences),
-            notification toggles, visit-confirmation settings, and similar
-            configuration.
-          </li>
-        </ul>
-        <p>
-          Streak and macro summaries are computed on-device from this local data.
-          We do not receive copies of it.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Location">
-        <p>
-          {site.name} can use your device’s location to detect when you enter or
-          leave activity locations you define (geofencing), including while the
-          app is closed, if you grant{" "}
-          <strong className="font-semibold text-ink">
-            Always / background location
-          </strong>{" "}
-          permission. You may also grant When-In-Use access only, or deny
-          location entirely and log visits manually.
-        </p>
-        <p>
-          Location coordinates for your saved places and visits are stored on
-          your device. Geofence monitoring is performed using Apple or Google
-          operating-system location services on your device. Those platform
-          providers process location according to their own terms and privacy
-          policies.
-        </p>
-        <p>
-          We do not upload your location history to a StreakSpot server. Denying
-          or later revoking location permission does not remove the rest of the
-          app; automatic check-ins simply will not run.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Maps">
-        <p>
-          When you add or edit a place, the app shows a map so you can drop a pin
-          and set a geofence radius. On iOS this uses Apple Maps (MapKit). On
-          Android it may use Google Maps / the Maps SDK. Map tiles and related
-          map services are provided by Apple or Google and are subject to their
-          terms and privacy policies. A Google Maps API key configured for the
-          Android app is used to load those map services; it is not used by us to
-          collect your personal habit data.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Notifications">
-        <p>
-          {site.name} uses{" "}
-          <strong className="font-semibold text-ink">
-            local notifications only
-          </strong>{" "}
-          (for example check-in / check-out alerts, confirm-visit reminders,
-          optional per-activity clock reminders, and optional meal reminders you
-          schedule). Activity clock reminders do not log a visit or change streak
-          math. The app does not use remote push notification delivery through
-          our servers.
-        </p>
-        <p>
-          Notification permission is optional. You can control activity and meal
-          reminder settings inside the app, and in your device system settings.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Local backup">
-        <p>
-          Settings lets you <strong className="font-semibold text-ink">export</strong>{" "}
-          a JSON backup (activities, reminders, visits, meals, goals,
-          preferences, and saved places) through the system share sheet — for
-          example Files or AirDrop.{" "}
-          <strong className="font-semibold text-ink">Restore</strong> replaces
-          the data on this device with that file after you confirm. We do not
-          receive or store the backup. Anyone you share the file with can read
-          it; treat it like other personal files on your device.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="What we do not collect">
-        <ul className="list-disc space-y-2 pl-5">
-          <li>No StreakSpot user accounts or sign-in.</li>
-          <li>No StreakSpot cloud sync or backend database of your habits.</li>
-          <li>
-            No advertising, tracking, analytics SDK, or crash-reporting service
-            operated by us.
-          </li>
-          <li>
-            No food database lookups, barcode scanning, meal photos, HealthKit /
-            Google Fit sync, or similar third-party health connectors.
-          </li>
-          <li>
-            Apple App Privacy: we do not collect data from this app.
-          </li>
-        </ul>
-        <p>
-          Your device manufacturer, app store, or OS may still process technical
-          information (for example install attribution, diagnostics you opt into
-          with Apple or Google) under their policies. That is outside
-          StreakSpot’s control.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="How we use information">
-        <p>On-device information is used only to provide app features, such as:</p>
-        <ul className="list-disc space-y-2 pl-5">
-          <li>Automatic and manual visit logging and streak calculation.</li>
-          <li>Optional activity clock reminders and meal reminders.</li>
-          <li>
-            Macro totals, goals, calendars, and (if you choose) on-device
-            estimates from a profile you enter.
-          </li>
-          <li>Remembering your appearance and notification preferences.</li>
-          <li>Local export and restore of a backup file you control.</li>
-        </ul>
-      </LegalSection>
-
-      <LegalSection title="Retention and deletion">
-        <p>
-          Data remains on your device until you delete it. From Settings you can
-          reset activities (and related locations, reminders, and visits), reset
-          macros (meals, default goals, meal reminders, and setup profile), or
-          reset the entire app. Uninstalling {site.name} also removes the app’s
-          local storage, subject to how your operating system handles device
-          backups. A file you exported earlier is not deleted unless you delete
-          it yourself.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Children">
-        <p>
-          {site.name} is not directed at children under 13 (or the equivalent
-          minimum age in your jurisdiction), and we do not knowingly collect
-          personal information from children through a StreakSpot account or
-          server. Because the app stores data only on-device, parents and
-          guardians should supervise device use and permissions as appropriate.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="International users">
-        <p>
-          Processing described here happens on your device. If you contact us by
-          email, your message is processed where we read and respond to support
-          mail.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Changes">
-        <p>
-          We may update this Privacy Policy as the product or legal requirements
-          change. The effective date at the top of this page will be revised when
-          we do. Continued use of the app after an update means you acknowledge
-          the revised policy.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Contact">
-        <p>
-          Questions about privacy:{" "}
-          <a
-            href={supportMailto}
-            className="font-medium text-gold hover:underline"
-          >
-            {site.supportEmail}
-          </a>
-          .
-        </p>
-      </LegalSection>
+    <LegalDocument
+      title={messages.privacy.title}
+      effectiveDateLabel={messages.legal.effectiveDateLabel}
+      effectiveDate={messages.site.legalEffectiveDate}
+    >
+      {messages.privacy.sections.map((section) => (
+        <LegalSection key={section.title} title={section.title}>
+          {section.blocks.map((block, index) => (
+            <LegalBlock
+              key={`${section.title}-${index}`}
+              block={block}
+              supportSubject={messages.site.supportSubject}
+            />
+          ))}
+        </LegalSection>
+      ))}
     </LegalDocument>
   );
 }

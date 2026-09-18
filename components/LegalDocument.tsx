@@ -1,12 +1,18 @@
 import type { ReactNode } from "react";
 
+import { RichText } from "@/lib/i18n/parse";
+import type { LegalBlock as LegalBlockType } from "@/lib/i18n/messages/types";
 import { site } from "@/lib/site";
 
 export function LegalDocument({
   title,
+  effectiveDateLabel,
+  effectiveDate,
   children,
 }: {
   title: string;
+  effectiveDateLabel: string;
+  effectiveDate: string;
   children: ReactNode;
 }) {
   return (
@@ -22,7 +28,7 @@ export function LegalDocument({
             {title}
           </h1>
           <p className="mt-3 text-sm text-ink-3">
-            Effective date: {site.legalEffectiveDate}
+            {effectiveDateLabel}: {effectiveDate}
           </p>
 
           <div className="legal-prose mt-10 space-y-8 text-[17px] leading-relaxed text-ink-2">
@@ -46,5 +52,41 @@ export function LegalSection({
       <h2 className="font-display text-2xl text-ink">{title}</h2>
       <div className="mt-3 space-y-3">{children}</div>
     </section>
+  );
+}
+
+export function LegalBlock({
+  block,
+  privacyLabel,
+  supportSubject,
+}: {
+  block: LegalBlockType;
+  privacyLabel?: string;
+  supportSubject?: string;
+}) {
+  if (block.type === "ul") {
+    return (
+      <ul className="list-disc space-y-2 pl-5">
+        {block.items.map((item) => (
+          <li key={item}>
+            <RichText
+              text={item}
+              privacyLabel={privacyLabel}
+              supportSubject={supportSubject}
+            />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  return (
+    <p>
+      <RichText
+        text={block.text}
+        privacyLabel={privacyLabel}
+        supportSubject={supportSubject}
+      />
+    </p>
   );
 }
