@@ -19,6 +19,8 @@ export type Messages = {
     terms: string;
     android: string;
     support: string;
+    menu: string;
+    closeMenu: string;
   };
   footer: {
     blurb: string;
@@ -27,18 +29,8 @@ export type Messages = {
     android: string;
     rights: string;
   };
-  home: {
-    heroBody: string;
-    featuresTitle: string;
-    featuresIntro: string;
-    features: Array<{ title: string; body: string }>;
-    privacyCta: {
-      title: string;
-      /** Use {{privacy}} and {{terms}} for linked labels. */
-      body: string;
-      privacyLabel: string;
-      termsLabel: string;
-    };
+  versions: {
+    label: string;
   };
   store: {
     downloadOnThe: string;
@@ -50,7 +42,6 @@ export type Messages = {
     reviewNote: string;
     downloadApk: string;
     getTheApk: string;
-    apkNote: string;
   };
   android: {
     title: string;

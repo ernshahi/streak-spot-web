@@ -4,62 +4,28 @@ export const en = {
   site: {
     tagline: "Habits that stick to places.",
     description:
-      "StreakSpot is an offline habit app for iPhone and Android: place-based activity streaks, optional clock reminders, and a daily macros log. No account. No cloud. No ads.",
+      "StreakSpot is a habit app for iPhone and Android: place-based activity streaks, optional clock reminders, and a daily macros log. Activities, visits, and meals stay on your phone.",
     legalEffectiveDate: "September 17, 2026",
-    supportSubject: "StreakSpot support",
+    supportSubject: "StreakSpot feedback",
   },
   nav: {
     privacy: "Privacy",
     terms: "Terms",
     android: "Android",
-    support: "Support",
+    support: "Feedback",
+    menu: "Menu",
+    closeMenu: "Close menu",
   },
   footer: {
     blurb:
-      "Offline habit tracking for places and macros. No account, no cloud, no ads.",
+      "Place-based streaks and a meal log. Activities and meals stay on your phone.",
     privacy: "Privacy Policy",
     terms: "Terms of Use",
     android: "Android",
     rights: "All rights reserved.",
   },
-  home: {
-    heroBody:
-      "Build streaks for the gym, class, or any place you go — check in when you arrive or by hand. Keep daily macros on the same phone. No account. No cloud. No ads.",
-    featuresTitle: "Built for showing up",
-    featuresIntro:
-      "One app: activity streaks (place or manual), optional clock reminders, and a lightweight meal log — without accounts, servers, or ads.",
-    features: [
-      {
-        title: "Place-based streaks",
-        body: "Tie a habit to a real place — gym, class, studio — or skip the pin and stay manual-only. Load samples if you want a head start. Geofences can check you in when you arrive, even if the app is closed.",
-      },
-      {
-        title: "Manual when you need it",
-        body: "Log visits by hand, confirm automatic check-ins so a GPS glitch does not count, or skip Always location entirely. Rest days and a start date stay in the streak math.",
-      },
-      {
-        title: "Clock reminders",
-        body: "Add optional times on any activity — medication, a class, a walk. They ping on your active weekdays only. A reminder never logs a visit or changes your streak.",
-      },
-      {
-        title: "Macros, simply",
-        body: "Log meals with calories (protein, carbs, and fat optional). Optional profile setup estimates daily goals; you can edit or skip. Day view, calendar, and meal reminders — no camera, barcode, food search, or AI.",
-      },
-      {
-        title: "Private by design",
-        body: "No account. No cloud sync. No ads. Everything lives in on-device SQLite until you export it, reset it, or uninstall. Apple App Privacy: data not collected.",
-      },
-      {
-        title: "Backup you keep",
-        body: "Export a JSON file through the share sheet (Files, AirDrop). Restore replaces what is on the phone. We never upload that file.",
-      },
-    ],
-    privacyCta: {
-      title: "Your data stays with you",
-      body: "StreakSpot does not create user accounts or sync to our servers. Location is used on-device for geofencing when you allow it. Notifications are local only. A backup is a file you save — not a StreakSpot cloud. Apple’s App Privacy label is data not collected. Read the full details in our {{privacy}} and {{terms}}.",
-      privacyLabel: "Privacy Policy",
-      termsLabel: "Terms of Use",
-    },
+  versions: {
+    label: "App version",
   },
   store: {
     downloadOnThe: "Download on the",
@@ -71,7 +37,6 @@ export const en = {
     reviewNote: "iPhone 1.0 is in App Store review.",
     downloadApk: "Download APK",
     getTheApk: "Get the APK",
-    apkNote: "Android: download the APK from this site until Google Play is live.",
   },
   android: {
     title: "Download StreakSpot for Android",

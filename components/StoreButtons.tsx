@@ -112,11 +112,9 @@ export async function StoreButtons({
           />
         )}
       </div>
-      <p className="text-sm leading-relaxed text-ink-3">
-        {!site.appStoreUrl ? messages.reviewNote : null}
-        {!site.appStoreUrl && !site.playStoreUrl ? " " : null}
-        {!site.playStoreUrl ? messages.apkNote : null}
-      </p>
+      {!site.appStoreUrl ? (
+        <p className="text-sm leading-relaxed text-ink-3">{messages.reviewNote}</p>
+      ) : null}
     </div>
   );
 }
