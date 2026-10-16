@@ -5,7 +5,7 @@ export const en = {
     tagline: "Habits that stick to places.",
     description:
       "StreakSpot is a habit app for iPhone and Android: place-based activity streaks, optional clock reminders, and a daily macros log. Activities, visits, and meals stay on your phone.",
-    legalEffectiveDate: "September 17, 2026",
+    legalEffectiveDate: "October 15, 2026",
     supportSubject: "StreakSpot feedback",
   },
   nav: {
@@ -46,6 +46,8 @@ export const en = {
     body: "Google Play is not live yet. You can install the same 1.0 app from an APK hosted here. Data stays on your phone — no account, no cloud.",
     download: "Download APK",
     packaging: "The Android APK is being packaged. Check back shortly.",
+    whatsNew: "What's new",
+    build: "Build {{build}}",
     stepsTitle: "Install",
     steps: [
       "Tap Download APK and save the file.",
@@ -73,18 +75,18 @@ export const en = {
   privacy: {
     title: "Privacy Policy",
     metaDescription:
-      "How StreakSpot handles information on your device — offline, no account, no ads. App Privacy: data not collected.",
+      "How StreakSpot handles your information: habits, places, and meals stay on your device; optional sign-in for meal scan; scan photos are analyzed and not kept on our servers.",
     sections: [
       {
         title: "Overview",
         blocks: [
           {
             type: "p",
-            text: "StreakSpot (“we,” “us”) is a mobile app for place-based activity streaks and manual macro / meal tracking. The app is designed to work offline. We do not require an account, we do not show ads, and we do not operate a StreakSpot backend that receives your habit, location, meal, or settings data. On the App Store, our App Privacy label is Data Not Collected.",
+            text: "StreakSpot (“we,” “us”) is a mobile app for place-based activity streaks and a daily meal / macros log. Activities, visits, places, meals, goals, and settings are stored on your device. We do not show ads and we do not sync your habit, location, or meal log to a server.",
           },
           {
             type: "p",
-            text: "This policy describes what information is processed on your device, what device or platform services may be involved when you use optional features (location, maps, notifications, local backup), and how you can delete your data. First launch starts empty — you add your own activities or load sample templates. There is no StreakSpot cloud backup. You can export or restore a JSON file on the device through the system share sheet.",
+            text: "A few optional features send data off the device: meal scan (which requires signing in), the sign-in account itself, and support notes you choose to send. This policy explains what each one sends, why, and how to delete it. Everything else works without an account. There is no StreakSpot cloud backup; you can export or restore a JSON file on the device through the system share sheet.",
           },
         ],
       },
@@ -93,7 +95,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "When you use StreakSpot, the following categories of information may be stored locally in an on-device SQLite database (and related app storage):",
+            text: "The following is stored locally in an on-device SQLite database and related app storage:",
           },
           {
             type: "ul",
@@ -101,13 +103,52 @@ export const en = {
               "Activities — names, icons/colors, active weekdays / rest days, start dates, minimum on-site duration, optional clock reminder times, and related settings.",
               "Locations — map pins (latitude / longitude), geofence radius, and metadata used to prioritize which regions are monitored.",
               "Visits — check-in / check-out times, confirmation status (for example pending, confirmed, expired), whether a visit came from a geofence or was logged manually, and optional location tags.",
-              "Meals / macros — meal names, calories, optional protein / carbs / fat, and timestamps; daily macro goals; optional meal-reminder preferences; and, if you use profile setup, height, weight, age, gender, activity level, and goal used only to estimate those targets on the device.",
+              "Meals / macros — meal names, calories, optional protein / carbs / fat, and timestamps; for meals saved from a scan, whether the meal came from a scan, the estimated ingredient list, and a small thumbnail of the photo; daily macro goals; optional meal-reminder preferences; and, if you use profile setup, height, weight, age, gender, activity level, and goal used only to estimate those targets on the device.",
               "App preferences — appearance (theme, accent color, and related display preferences), notification toggles, visit-confirmation settings, and similar configuration.",
             ],
           },
           {
             type: "p",
             text: "Streak and macro summaries are computed on-device from this local data. We do not receive copies of it.",
+          },
+        ],
+      },
+      {
+        title: "Account (optional)",
+        blocks: [
+          {
+            type: "p",
+            text: "Signing in is only needed for meal scan. You can create an account with an email address and password, or sign in with Google. Accounts are handled by Supabase, the service that hosts our sign-in and scan server. Your account holds your email address and a user ID. We use the user ID to apply daily scan limits; a small usage counter is kept for this. Your meals and habits are not linked to the account or uploaded.",
+          },
+          {
+            type: "p",
+            text: "You can delete your account at any time in the app (Settings → Account → Delete account). This deletes your sign-in account and its scan usage record from our server and signs you out. Data on your device stays until you reset it or uninstall the app.",
+          },
+        ],
+      },
+      {
+        title: "Meal scan photos",
+        blocks: [
+          {
+            type: "p",
+            text: "Meal scan is optional. When you take or choose a photo of a meal or nutrition label and tap Scan, the app shrinks the photo on your device and sends it, together with the optional note you typed (for example the portion size), to our server. Our server forwards the photo and note to OpenAI only to estimate the meal name, calories, macros, and ingredients, and returns the estimate to the app.",
+          },
+          {
+            type: "p",
+            text: "The photo and note are used only for that analysis. They are not kept on our servers. OpenAI processes them as a third-party service under its own terms and policies.",
+          },
+          {
+            type: "p",
+            text: "If you save the meal, the app keeps a small thumbnail of the photo on your device only, so you can recognize the meal in your log. The thumbnail is never uploaded and is deleted when you delete the meal. Backup files contain only a reference to it, not the image.",
+          },
+        ],
+      },
+      {
+        title: "Support notes",
+        blocks: [
+          {
+            type: "p",
+            text: "If you send a note from Support in the app, we store the note, up to 3 photos you attach, the app version, platform, and app language, plus your user ID if you are signed in, so we can read and respond to it. Nothing is sent unless you tap Send.",
           },
         ],
       },
@@ -155,7 +196,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "Settings lets you export a JSON backup (activities, reminders, visits, meals, goals, preferences, and saved places) through the system share sheet — for example Files or AirDrop. Restore replaces the data on this device with that file after you confirm. We do not receive or store the backup. Anyone you share the file with can read it; treat it like other personal files on your device.",
+            text: "Settings lets you export a JSON backup (activities, reminders, visits, meals, goals, preferences, and saved places) through the system share sheet — for example Files or AirDrop. Meal photo thumbnails are not included. Restore replaces the data on this device with that file after you confirm. We do not receive or store the backup. Anyone you share the file with can read it; treat it like other personal files on your device.",
           },
         ],
       },
@@ -165,11 +206,10 @@ export const en = {
           {
             type: "ul",
             items: [
-              "No StreakSpot user accounts or sign-in.",
-              "No StreakSpot cloud sync or backend database of your habits.",
+              "No cloud sync or server copy of your activities, visits, places, or meal log.",
+              "No location history on our servers.",
               "No advertising, tracking, analytics SDK, or crash-reporting service operated by us.",
-              "No food database lookups, barcode scanning, meal photos, HealthKit / Google Fit sync, or similar third-party health connectors.",
-              "Apple App Privacy: we do not collect data from this app.",
+              "No HealthKit / Google Fit sync or similar third-party health connectors.",
             ],
           },
           {
@@ -183,7 +223,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "On-device information is used only to provide app features, such as:",
+            text: "We use information only to provide app features, such as:",
           },
           {
             type: "ul",
@@ -191,9 +231,15 @@ export const en = {
               "Automatic and manual visit logging and streak calculation.",
               "Optional activity clock reminders and meal reminders.",
               "Macro totals, goals, calendars, and (if you choose) on-device estimates from a profile you enter.",
+              "Estimating a meal from a photo you choose to scan, and applying scan limits to your account.",
+              "Reading and responding to support notes you send.",
               "Remembering your appearance and notification preferences.",
               "Local export and restore of a backup file you control.",
             ],
+          },
+          {
+            type: "p",
+            text: "We do not sell your information or use it for advertising.",
           },
         ],
       },
@@ -202,7 +248,11 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "Data remains on your device until you delete it. From Settings you can reset activities (and related locations, reminders, and visits), reset macros (meals, default goals, meal reminders, and setup profile), or reset the entire app. Uninstalling StreakSpot also removes the app’s local storage, subject to how your operating system handles device backups. A file you exported earlier is not deleted unless you delete it yourself.",
+            text: "Data on your device remains until you delete it. From Settings you can reset activities (and related locations, reminders, and visits), reset macros (meals, default goals, meal reminders, and setup profile), or reset the entire app. Deleting a meal also deletes its photo thumbnail. Uninstalling StreakSpot removes the app’s local storage, subject to how your operating system handles device backups. A file you exported earlier is not deleted unless you delete it yourself.",
+          },
+          {
+            type: "p",
+            text: "Scan photos and notes are not kept on our servers after the analysis. Your account and its scan usage record are kept until you delete the account in the app. For questions about support notes you sent, contact {{email}}.",
           },
         ],
       },
@@ -211,7 +261,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "StreakSpot is not directed at children under 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect personal information from children through a StreakSpot account or server. Because the app stores data only on-device, parents and guardians should supervise device use and permissions as appropriate.",
+            text: "StreakSpot is not directed at children under 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect personal information from children. Most data stays on the device, so parents and guardians should supervise device use, sign-in, and permissions as appropriate.",
           },
         ],
       },
@@ -220,7 +270,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "Processing described here happens on your device. If you contact us by email, your message is processed where we read and respond to support mail.",
+            text: "Most processing described here happens on your device. Sign-in, meal scan, and support notes are processed by Supabase and, for meal scan, OpenAI, which may be located in other countries. If you contact us by email, your message is processed where we read and respond to support mail.",
           },
         ],
       },
@@ -266,7 +316,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "StreakSpot helps you track place-based activity streaks (via optional geofencing and/or manual visits), optional clock reminders on activities, and manual meal / macro logs. The App stores your data on your device, does not require a StreakSpot account or cloud sync, and does not show ads.",
+            text: "StreakSpot helps you track place-based activity streaks (via optional geofencing and/or manual visits), optional clock reminders on activities, and meal / macro logs, with an optional photo-based meal scan. The App stores your data on your device, does not use cloud sync, and does not show ads. An account (email and password, or Google) is only needed for meal scan, and you can delete it in the App.",
           },
           {
             type: "p",
@@ -319,7 +369,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "Macro tracking is a convenience feature. Meal calories and macros are values you enter. Optional profile setup estimates daily targets on the device from details you provide; those numbers are estimates you can edit, not medical, nutritional, or fitness advice, diagnoses, or treatment. Consult a qualified professional for health decisions. Activity reminders (including medication times) do not confirm that a dose was taken.",
+            text: "Macro tracking is a convenience feature. Meal calories and macros are values you enter or AI estimates from a photo you scan; estimates can be wrong, so check and edit them. Optional profile setup estimates daily targets on the device from details you provide; those numbers are estimates you can edit, not medical, nutritional, or fitness advice, diagnoses, or treatment. Consult a qualified professional for health decisions. Activity reminders (including medication times) do not confirm that a dose was taken.",
           },
         ],
       },
@@ -328,7 +378,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "Our {{privacy}} explains how information is handled on your device and which platform services may be involved. By using the App, you also acknowledge that policy.",
+            text: "Our {{privacy}} explains how information is handled on your device, what optional features such as meal scan send off the device, and which services may be involved. By using the App, you also acknowledge that policy.",
           },
         ],
       },
@@ -337,7 +387,7 @@ export const en = {
         blocks: [
           {
             type: "p",
-            text: "The App may rely on operating-system services (location, notifications) and map display (Apple Maps on iOS; Google Maps on Android). Your use of those services is also subject to the third party’s terms. Purchases, refunds, and store billing (if any) are handled by Apple or Google under their store terms.",
+            text: "The App may rely on operating-system services (location, notifications) and map display (Apple Maps on iOS; Google Maps on Android). Sign-in, meal scan, and support notes use Supabase, and meal scan uses OpenAI to estimate meals from photos. Your use of those services is also subject to the third party’s terms. Purchases, refunds, and store billing (if any) are handled by Apple or Google under their store terms.",
           },
         ],
       },

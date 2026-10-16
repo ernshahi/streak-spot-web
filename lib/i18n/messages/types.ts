@@ -53,6 +53,9 @@ export type Messages = {
     stepsTitle: string;
     steps: string[];
     playNote: string;
+    whatsNew: string;
+    /** Use {{build}} for the version and build number. */
+    build: string;
   };
   theme: {
     toggle: string;

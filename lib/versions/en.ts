@@ -32,7 +32,7 @@ export const enVersions: Record<VersionId, VersionContent> = {
       },
       {
         title: "Meal scan",
-        body: "Photograph a meal or a nutrition label with the camera or your photo library. The picture is resized on your phone and sent once to estimate the name, calories, and protein, carbs, and fat. The photo is not stored. Sign in with email or Google to scan. Typing a meal does not need an account.",
+        body: "Photograph a meal or a nutrition label with the camera or your photo library. The picture is resized on your phone and sent once, with an optional note, to estimate the name, calories, and protein, carbs, and fat. The photo is sent only for analysis and not kept on our servers; a small thumbnail is saved on your device. Sign in with email or Google to scan. Typing a meal does not need an account.",
       },
       {
         title: "Account",
@@ -44,16 +44,24 @@ export const enVersions: Record<VersionId, VersionContent> = {
       },
       {
         title: "On your phone",
-        body: "Activities, visits, and meals you type live in on-device SQLite. No ads. Export, reset, or uninstall to remove them from the phone. A scan photo is sent once for the estimate and is not kept.",
+        body: "Activities, visits, and meals you type live in on-device SQLite. No ads. Export, reset, or uninstall to remove them from the phone. A scan photo is sent only for analysis and not kept on our servers; a small thumbnail is saved on your device.",
       },
       {
         title: "Backup you keep",
         body: "Export a JSON file through the share sheet (Files, AirDrop). Restore replaces what is on the phone. That file is not uploaded.",
       },
     ],
+    apk: {
+      body: "Google Play is not live yet. Install StreakSpot 2.0 from this APK. Activities and meals stay on your phone; sign in only to scan a meal.",
+      notes: [
+        "Meal scan: photograph a meal or label, adjust ingredients and macros with steppers, and pick up an unsaved scan where you left off.",
+        "Macros: a new summary card you can swipe between a ring and a gauge.",
+        "Activities: a calmer list with a today ring, and a redesigned activity page with a monthly ring, softer calendar, and one-tap clearing of unconfirmed check-ins.",
+      ],
+    },
     privacyCta: {
       title: "What stays on your phone",
-      body: "Activities, visits, typed meals, and places stay in on-device SQLite. Location is used on the device for geofencing when you allow it. Notifications are local. A backup is a file you save. Scanning a meal sends that photo once and does not store it, and needs a sign-in. A support note can be saved with up to three photos. Read the {{privacy}} and {{terms}}.",
+      body: "Activities, visits, typed meals, and places stay in on-device SQLite. Location is used on the device for geofencing when you allow it. Notifications are local. A backup is a file you save. Scanning a meal needs a sign-in and sends the photo, with any note you add, to our server and OpenAI only for analysis; neither is kept on our servers, and a small thumbnail stays on your device. A support note can be saved with up to three photos. Read the {{privacy}} and {{terms}}.",
       privacyLabel: "Privacy Policy",
       termsLabel: "Terms of Use",
     },
@@ -94,6 +102,13 @@ export const enVersions: Record<VersionId, VersionContent> = {
         body: "Export a JSON file through the share sheet (Files, AirDrop). Restore replaces what is on the phone. We never upload that file.",
       },
     ],
+    apk: {
+      body: "The original offline StreakSpot 1.0: no account, no cloud. Use it if you prefer the version without meal scan.",
+      notes: [
+        "Place-based and manual activity streaks with clock reminders.",
+        "Manual macros log with goals, calendar, and meal reminders.",
+      ],
+    },
     privacyCta: {
       title: "Your data stays with you",
       body: "StreakSpot does not create user accounts or sync to our servers. Location is used on-device for geofencing when you allow it. Notifications are local only. A backup is a file you save — not a StreakSpot cloud. Apple’s App Privacy label is data not collected. Read the full details in our {{privacy}} and {{terms}}.",

@@ -2,6 +2,14 @@
 
 import { usePathname, useRouter } from "next/navigation";
 
+import {
+  androidPath,
+  isAndroidPath,
+  versionIdFromPath,
+  versionPath,
+  type VersionId,
+} from "@/lib/versions";
+
 type VersionOption = {
   id: string;
   label: string;
@@ -17,8 +25,7 @@ export function VersionSelect({
 }) {
   const router = useRouter();
   const pathname = usePathname();
-  const currentId =
-    options.find((option) => option.href === pathname)?.id ?? options[0]?.id ?? "";
+  const currentId = versionIdFromPath(pathname) ?? options[0]?.id ?? "";
 
   return (
     <div className="relative inline-flex shrink-0">
@@ -26,8 +33,11 @@ export function VersionSelect({
         value={currentId}
         aria-label={label}
         onChange={(event) => {
-          const next = options.find((option) => option.id === event.target.value);
-          if (next && next.id !== currentId) router.push(next.href);
+          const nextId = event.target.value;
+          const next = options.find((option) => option.id === nextId);
+          if (!next || next.id === currentId) return;
+          const id = next.id as VersionId;
+          router.push(isAndroidPath(pathname) ? androidPath(id) : versionPath(id));
         }}
         className="cursor-pointer appearance-none rounded-full border border-line/80 bg-surface/80 py-1.5 pr-8 pl-3 text-sm font-medium text-ink shadow-sm backdrop-blur-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
       >
